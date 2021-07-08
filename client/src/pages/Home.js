@@ -1,13 +1,11 @@
-import React from "react"
-import { Layout } from "../components/Layout"
-import { Explainer } from "../components/Explainer"
+import React from "react";
+import { Layout } from "../components/Layout";
+import { Explainer } from "../components/Explainer";
 
 function Home() {
-  return (
-    <Layout>
-      <Explainer />
-    </Layout>
-  )
+  return <Layout>
+    
+  </Layout>;
 }
 
-export default Home
+export default Home;
