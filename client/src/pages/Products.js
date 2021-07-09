@@ -1,7 +1,8 @@
 import React from "react";
 import { getProducts } from "../services/products";
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+//import { Link } from "react-router-dom";
+import { Link } from "@material-ui/core";
 const Products = () => {
   const [loading, setLoading] = useState(true);
   const [products, setProducts] = useState([]);
@@ -12,21 +13,24 @@ const Products = () => {
       if (products.data) {
         setLoading(false);
         console.log(products.data);
+        setProducts(products.data);
       }
-      setProducts(products.data);
     };
     fetchProducts();
   }, []);
 
-  if (products.length > 1) {
-    console.log(products);
+  if (loading === false) {
+    // console.log(products);
 
     return (
       <div>
         <h1>All Products</h1>
         {products?.map((product) => (
           <div className="products">
-            <Link to={`/product/${product.id}`}>
+            <Link
+              href={`/product/${product.id}`}
+              style={{ textDecoration: "none" }}
+            >
               <h3>{product.label}</h3>
               <p>
                 Price:
@@ -41,7 +45,7 @@ const Products = () => {
       </div>
     );
   } else {
-    return <h1>No Products</h1>;
+    return <h1>Loading...</h1>;
   }
 };
 

@@ -1,7 +1,8 @@
 import React from "react";
 import { getProduct } from "../services/products";
 import { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
+import { Link } from "@material-ui/core";
 
 const Details = () => {
   const [loading, setLoading] = useState(true);
@@ -23,20 +24,22 @@ const Details = () => {
   if (loading === false) {
     return (
       <div className="details">
-        <Link to="/">Back</Link>
+        <Link href="/" className="link">
+          Back
+        </Link>
         <h3>{product.label}</h3>
-        <p>
-          Details:
-          {product.features?.map((feature) => (
-            <li>{feature}</li>
-          ))}
-        </p>
+        <p>Features:</p>
+        {product.features?.map((feature) => (
+          <li>{feature}</li>
+        ))}
       </div>
     );
   } else {
     return (
       <div className="loading">
-        <Link to="/">Back</Link>
+        <Link href="/" className="link">
+          Back
+        </Link>
         <h1> Loading...</h1>
       </div>
     );
