@@ -1,19 +1,13 @@
-import React from "react";
-import { Layout } from "../components/Layout";
-import Products from "./Products";
-import { Route } from "react-router-dom";
-import Details from "./Details";
+import React from "react"
+import { Layout } from "../components/Layout"
+import { Explainer } from "../components/Explainer"
+
 function Home() {
   return (
     <Layout>
-      <Route exact path="/">
-        <Products />
-      </Route>
-      <Route exact path="/product/:id">
-        <Details />
-      </Route>
+      <Explainer />
     </Layout>
-  );
+  )
 }
 
-export default Home;
+export default 
